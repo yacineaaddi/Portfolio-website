@@ -17,6 +17,13 @@ const config = {
         Outfit: ["Outfit", "sans-serif"],
         Ovo: ["Ovo", "serif"],
       },
+      boxShadow: {
+        black: "2px 2px 0 #000",
+        white: "2px 2px 0 #fff",
+      },
+      gridTemplateColumns: {
+        auto: "repeat(auto-fit, minmax(200px,1fr))",
+      },
     },
   },
   plugin: [],
