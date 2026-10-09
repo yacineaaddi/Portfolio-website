@@ -1,13 +1,15 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { academic_degrees } from "@/assets/assets";
 import splideOptions from "../utils/splidOptions";
-import { serviceData } from "@/assets/assets";
 import { motion } from "motion/react";
 import Image from "next/image";
 import React from "react";
 
-const Services = () => {
+const Degrees = () => {
+  const splideOptionWithDirection = { ...splideOptions, direction: "rtl" };
+
   return (
-    <div id="services" className="service-section">
+    <div id="degrees" className="degrees-section">
       <motion.h4
         className="section-subtitle"
         initial={{ y: -20, opacity: 0 }}
@@ -22,7 +24,7 @@ const Services = () => {
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.2 }}
       >
-        My services
+        My degrees
       </motion.h2>
       <motion.p
         className="section-text"
@@ -30,36 +32,28 @@ const Services = () => {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.2 }}
       >
-        I create complete digital products, from responsive web interfaces to
-        cross-platform mobile applications and the backend systems that power
-        them
+        My academic background in Software Engineering has given me a strong
+        foundation in programming, software development, databases, and
+        application architecture
       </motion.p>
-      <motion.div
-        className="my-10"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.2, delay: 0.1 }}
-      >
-        <Splide options={splideOptions}>
-          {serviceData.map(({ icon, title, description, link }, index) => (
+      <div>
+        <Splide options={splideOptionWithDirection}>
+          {academic_degrees.map(({ title, bgImage }, index) => (
             <SplideSlide key={index}>
-              <div className="service-container" key={index}>
+              <div className="degrees-box">
                 <Image
-                  src={icon.src}
-                  alt=""
-                  className="w-10"
-                  width="10"
-                  height="10"
+                  src={bgImage}
+                  alt={title}
+                  fill
+                  className="object-contain"
                 />
-                <h3 className="service-title">{title}</h3>
-                <p className="service-description">{description}</p>
               </div>
             </SplideSlide>
           ))}
         </Splide>
-      </motion.div>
+      </div>
     </div>
   );
 };
 
-export default Services;
+export default Degrees;

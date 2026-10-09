@@ -1,59 +1,117 @@
 import { toolsData } from "@/assets/assets";
 import { infoList } from "@/assets/assets";
 import { assets } from "@/assets/assets";
+import { motion } from "motion/react";
 import Image from "next/image";
 import React from "react";
 
 const About = () => {
   return (
-    <div id="about" className="w-full px-[12%] py-10 scroll-mt-20 ">
-      <h4 className="text-center mb-2 text-lg font-Ovo">Introduction</h4>
-      <h2 className="text-center text-5xl font-Ovo">About me</h2>
-      <div className="flex w-full flex-col lg:flex-row items-center justify-center gap-20 my-20 ">
-        <div className="w-64 sm:w-80 rounded-3xl max-w-none">
+    <motion.div
+      id="about"
+      className="about-section"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
+    >
+      <motion.h4
+        className="section-subtitle"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+      >
+        Introduction
+      </motion.h4>
+      <motion.h2
+        className="section-title"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        About me
+      </motion.h2>
+      <motion.div
+        className="about-container flex-style"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <motion.div
+          className="about-image"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+        >
           <Image
             src={assets.user_image}
             alt="user"
             className="w-full rounded-3xl"
           />
-        </div>
+        </motion.div>
 
-        <div className="">
+        <motion.div
+          className=""
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+        >
           <p className="mb-10 max-w-2xl font-Ovo">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum
+            {`I'm a Software Engineering graduate and Full-Stack Developer
+            specialized in building modern web and mobile applications with
+            React, React Native, and Node.js and enjoy working across the entire
+            development lifecycle—from designing interfaces to building APIs,
+            authentication, databases, and deployment`}
           </p>
-          <ul className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
-            {infoList.map(({ icon, isonDark, title, description }, index) => (
-              <li
-                className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black"
+          <motion.ul
+            className="about-infoList"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+          >
+            {infoList.map(({ icon, iconDark, title, description }, index) => (
+              <motion.li
+                className="about-infoList-box dark:Hover:shadow-white"
                 key={index}
+                whileInView={{ scale: 1.05 }}
               >
-                <Image src={icon} alt={title} className="w-7 mt-3" />
-                <h3 className="my-4 font-semibold text-gray-700">{title}</h3>
+                <Image
+                  src={icon}
+                  alt={title}
+                  className="w-7 mt-3 dark:hidden"
+                />
+                <Image
+                  src={iconDark}
+                  alt={title}
+                  className="w-7 mt-3 hidden dark:block"
+                />
+                <h3 className="about-infoList-title">{title}</h3>
                 <p className="text-gray-600 text-sm">{description}</p>
-              </li>
+              </motion.li>
             ))}
-          </ul>
-          <h4 className="my-6 text-gray-700 font-Ovo">Tools I use</h4>
-          <ul className="flex items-center gap-3 sm:gap-5">
+          </motion.ul>
+          <motion.h4
+            className="about-tools-title"
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.4 }}
+          >
+            Tools I use
+          </motion.h4>
+          <motion.ul
+            className="about-tools-container"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.4 }}
+          >
             {toolsData.map((tool, index) => (
-              <li
-                className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-300"
-                key={index}
-              >
+              <li className="about-tools-box" key={index}>
                 <Image src={tool} alt="" className="w-5 sm:w-7" />
               </li>
             ))}
-          </ul>
-        </div>
-      </div>
-    </div>
+          </motion.ul>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 };
 

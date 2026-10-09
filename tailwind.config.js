@@ -10,7 +10,7 @@ const config = {
     extend: {
       colors: {
         lightHover: "#fcf4ff",
-        darHover: "#2a004a",
+        darkHover: "#2a004a",
         darkTheme: "#11001F",
       },
       fontFamily: {
@@ -26,6 +26,7 @@ const config = {
       },
     },
   },
+  darkMode: "class",
   plugin: [],
 };
 

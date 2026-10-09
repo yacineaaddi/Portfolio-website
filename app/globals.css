@@ -4,4 +4,201 @@
 
 * {
   font-family: Outfit;
+  user-select: none;
+}
+
+@layer utilities {
+  /*Common styles*/
+
+  .flex-style {
+    @apply flex flex-col items-center justify-center;
+  }
+  .box-transform {
+    @apply transition-transform hover:scale-[102%] duration-300;
+  }
+  .section-subtitle {
+    @apply text-center mb-2 text-lg font-Ovo;
+  }
+  .section-title {
+    @apply text-center text-5xl font-Ovo;
+  }
+  .section-text {
+    @apply text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo;
+  }
+  /*Navbar*/
+
+  .logo {
+    @apply w-28 cursor-pointer mr-14;
+  }
+  .navbar-style {
+    @apply w-full fixed px-5 xl:px-[8%] py-4 flex items-center justify-between z-50;
+  }
+  .navbar-scroll {
+    @apply bg-white bg-opacity-50 backdrop-blur-lg shadow-sm dark:bg-darkTheme dark:shadow-white/20;
+  }
+  .menu {
+    @apply hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 border-[1.5px] border-gray-200;
+  }
+  .menu-scroll {
+    @apply bg-white shadow-sm bg-opacity-50 dark:border dark:border-white/50 dark:bg-transparent;
+  }
+  .menu-list {
+    @apply transition-transform hover:scale-105 duration-300;
+  }
+  .box-hover {
+    @apply transition-transform hover:scale-[102%] duration-300;
+  }
+  .contact-button {
+    @apply hidden lg:flex items-center gap-3 font-Ovo px-10 py-2.5 border border-gray-300 rounded-full ml-4 dark:border-white/50;
+  }
+  .mobile-menu {
+    @apply flex md:hidden flex-col gap-4 py-20 px-10 fixed right-0 top-0 bottom-0 w-[85%] z-50 h-screen bg-rose-50 translate-x-[50rem] transition duration-300 dark:text-white dark:bg-darkHover;
+  }
+  .close-menu {
+    @apply w-5 cursor-pointer;
+  }
+  .mobile-menu-list {
+    @apply flex flex-col gap-4 items-center;
+  }
+
+  /*Header section*/
+
+  .header-section {
+    @apply w-11/12 max-w-3xl text-center mx-auto h-screen gap-4;
+  }
+  .header-name {
+    @apply flex items-end gap-2 text-xl md:text-2xl mb-3 font-Ovo;
+  }
+  .header-title {
+    @apply text-3xl sm:text-6xl lg:text-[66px] font-Ovo;
+  }
+  .header-text {
+    @apply max-w-2xl mx-auto font-Ovo;
+  }
+  .header-buttons {
+    @apply flex flex-col sm:flex-row items-center gap-4 mt-4;
+  }
+  .header-button {
+    @apply px-8 py-3 border rounded-full border-gray-400 flex items-center gap-3;
+  }
+
+  /*Header section*/
+
+  .about-section {
+    @apply w-full px-[12%] py-2 md:py-10 scroll-mt-20;
+  }
+  .about-image {
+    @apply w-64 sm:w-80 rounded-3xl max-w-none;
+  }
+  .about-container {
+    @apply lg:flex-row w-full gap-20 my-20;
+  }
+  .about-infoList {
+    @apply grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl;
+  }
+  .about-infoList-box {
+    @apply border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer  hover:-translate-y-1 duration-300 hover:shadow-black dark:border-white dark:hover:bg-darkHover/50 dark:hover:shadow-white;
+  }
+  .about-infoList-title {
+    @apply my-4 font-semibold text-gray-700 dark:text-white;
+  }
+  .about-tools-title {
+    @apply my-6 text-gray-700 font-Ovo dark:text-white/80;
+  }
+  .about-tools {
+    @apply flex items-center gap-3 sm:gap-5;
+  }
+  .about-tools-container {
+    @apply flex items-center gap-3 sm:gap-5;
+  }
+  .about-tools-box {
+    @apply flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-300 hover:shadow-black;
+  }
+
+  /*Work section*/
+
+  .work-section {
+    @apply w-full px-[12%] py-10 scroll-mt-20;
+  }
+  .work-container {
+    @apply grid grid-cols-auto my-10 gap-5 dark:text-black;
+  }
+  .work-box {
+    @apply aspect-square rounded-lg relative cursor-pointer overflow-hidden;
+  }
+  .work-project {
+    @apply bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-8;
+  }
+  .work-icon {
+    @apply border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition;
+  }
+  .work-showMore {
+    @apply w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20  dark:text-white dark:border-white;
+  }
+
+  /*Work section*/
+
+  .service-section {
+    @apply w-full px-[12%] py-10 scroll-mt-20;
+  }
+  .service-container {
+    @apply border border-gray-400 rounded-lg px-8 py-12 hover:py-11 cursor-pointer duration-300;
+  }
+  .service-title {
+    @apply text-lg my-4 text-gray-700 dark:text-white;
+  }
+  .service-description {
+    @apply text-sm text-gray-600 leading-5 dark:text-white/80;
+  }
+
+  /*Work section*/
+
+  .degrees-section {
+    @apply w-full px-[12%] py-10 scroll-mt-20;
+  }
+  .degrees-box {
+    @apply relative w-[17rem] h-[12.5rem] border border-gray-400 rounded-lg cursor-pointer dark:border-none hover:border-[2px];
+  }
+
+  /*Contact section*/
+
+  .contact-section {
+    @apply w-full px-[12%] py-10 scroll-mt-20;
+  }
+  .contact-container {
+    @apply grid grid-cols-auto gap-6 mt-10 mb-8;
+  }
+  .contact-container {
+    @apply grid grid-cols-auto gap-6 mt-10 mb-8;
+  }
+  .contact-container {
+    @apply grid grid-cols-auto gap-6 mt-10 mb-8;
+  }
+  .contact-input {
+    @apply flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90;
+  }
+  .contact-textarea {
+    @apply w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90;
+  }
+  .contact-section-button {
+    @apply mt-7 py-3 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto dark:bg-transparent dark:border-[0.5px];
+  }
+
+  /*Footer section*/
+
+  .footer-logo {
+    @apply w-36 mx-auto mb-2;
+  }
+  .footer-gmail-box {
+    @apply w-max flex items-center gap-2 mx-auto;
+  }
+  .footer-box {
+    @apply text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6;
+  }
+  .footer-links {
+    @apply flex items-center gap-10 justify-center mt-4 sm:mt-0;
+  }
+  .footer-link {
+    @apply hover:scale-[106%] duration-300 transition-transform;
+  }
 }

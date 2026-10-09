@@ -1,5 +1,7 @@
 import { Outfit, Ovo } from "next/font/google";
 import "./globals.css";
+import DarkModeProvider from "./providers/DarkModeProvider";
+import "@splidejs/splide/css/core";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -18,11 +20,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={`${outfit.variable} ${ovo.variable} h-full antialiased leading-8 overflow-x-hidden`}
       >
-        {children}
+        <DarkModeProvider>{children}</DarkModeProvider>
       </body>
     </html>
   );

@@ -1,41 +1,80 @@
 import { assets } from "@/assets/assets";
+import { motion } from "motion/react";
 import Image from "next/image";
-import { useRef } from "react";
 import React from "react";
 
 const Header = () => {
   return (
-    <div className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
-      <div>
-        <Image src={assets.profile_img} alt="" className="rounded-full w-32" />
-      </div>
-      <h3 className="flex items-end gap-2 text-xl md:text-2xl mb-3 font-Ovo">
-        {`Hi! I'm Yacine Aaddi`}
-        <Image src={assets.hand_icon} alt="" className="w-6" />
-      </h3>
-      <h1 className="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">
-        full stack web developer based in morroco
-      </h1>
-      <p className="max-w-2xl mx-auto font-Ovo">
-        I am a frontend developer from morroco, with 5 years of experience
-      </p>
-      <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
-        <a
-          href="#contact"
-          className="px-8 py-3 border rounded-full border-gray-500 flex items-center justify-center gap-3"
+    <>
+      <div className="header-section flex-style">
+        <motion.div
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
         >
-          contact me
-          <Image src={assets.web_icon} alt="" className="w-4" />
-        </a>
-        <a
-          href="/sample-resume.pdf"
-          download
-          className="px-8 py-3 border rounded-full border-gray-500 flex items-center gap-3"
+          <Image
+            src={assets.profile_img}
+            alt=""
+            className="rounded-full w-32"
+          />
+        </motion.div>
+        <motion.h3
+          className="header-name"
+          initial={{ y: -10, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
         >
-          my resume <Image src={assets.download_icon} alt="" className="w-4" />
-        </a>
+          {`Hi! I'm Yacine Aaddi`}
+          <Image src={assets.hand_icon} alt="" className="w-6" />
+        </motion.h3>
+        <motion.h1
+          className="header-title"
+          initial={{ y: -30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.4 }}
+        >
+          full stack web developer
+        </motion.h1>
+        <motion.p
+          className="header-text"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.7 }}
+        >
+          I build modern web and mobile applications with React, React Native,
+          and Node.js
+        </motion.p>
+        <div className="header-buttons">
+          <div className="box-transform">
+            <motion.a
+              href="#work"
+              className="header-button bg-white dark:text-black"
+              initial={{ y: 0, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.2, delay: 0.7 }}
+            >
+              my projects
+              <Image src={assets.github_logo} alt="" className="w-4" />
+            </motion.a>
+          </div>
+          <div className="box-transform">
+            <motion.a
+              href="#degrees"
+              className="header-button justify-center dark:bg-transparent "
+              initial={{ y: 0, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 0.2,
+                delay: 0.8,
+              }}
+            >
+              Academic degrees
+              <Image src={assets.graduate_logo} alt="" className="w-4" />
+            </motion.a>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

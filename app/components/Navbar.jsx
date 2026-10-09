@@ -1,19 +1,22 @@
-import { assets } from "@/assets/assets";
-import Image from "next/image";
+"use client";
+
 import { useEffect, useRef, useState } from "react";
+import { assets } from "@/assets/assets";
+import { useTheme } from "next-themes";
+import Image from "next/image";
 import React from "react";
 
 const Navbar = () => {
   const [isScroll, setIsScroll] = useState(false);
-
+  const { setTheme, resolvedTheme } = useTheme();
   const sideMenuRef = useRef();
 
   const openMenu = () => {
-    sideMenuRef.current.style.transform = "translateX(-16rem)";
+    sideMenuRef.current.style.transform = "translateX(0)";
   };
 
   const closeMenu = () => {
-    sideMenuRef.current.style.transform = "translateX(16rem)";
+    sideMenuRef.current.style.transform = "translateX(20rem)";
   };
 
   useEffect(() => {
@@ -27,104 +30,130 @@ const Navbar = () => {
   });
   return (
     <>
-      <div className="fixed top-0 right-0 w-full z-10 translate-y-[-80%]">
-        <Image src={assets.header_bg_color} alt="" className="w-full" />
-      </div>
-      <nav
-        className={`w-full fixed px-5 xl:px-[8%] py-4 flex items-center justify-between z-50 ${isScroll ? "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm" : ""}`}
-      >
+      <nav className={`navbar-style ${isScroll ? "navbar-scroll" : ""} `}>
         <a href="#top">
+          <Image src={assets.logo_light} alt="" className="logo dark:hidden" />
           <Image
-            src={assets.logo}
+            src={assets.logo_dark}
             alt=""
-            className="w-28 cursor-pointer mr-14"
+            className="logo hidden dark:block"
           />
         </a>
-        <ul
-          className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 ${isScroll ? "" : "bg-white shadow-sm bg-opacity-50"}`}
-        >
-          <li>
-            <a className="font-Ovo" href="top">
+        <ul className={`menu ${isScroll ? "" : "menu-scroll"}`}>
+          <li className="menu-list">
+            <a className="font-Ovo" href="#top">
               Home
             </a>
           </li>
-          <li>
-            <a className="font-Ovo" href="about">
+          <li className="menu-list">
+            <a className="font-Ovo" href="#about">
               About
             </a>
           </li>
-          <li>
-            <a className="font-Ovo" href="services">
-              Serices
+          <li className="menu-list">
+            <a className="font-Ovo" href="#work">
+              Work
             </a>
           </li>
-          <li>
-            <a className="font-Ovo" href="work">
-              My Work
+          <li className="menu-list">
+            <a className="font-Ovo" href="#services">
+              Services
             </a>
           </li>
-          <li>
-            <a className="font-Ovo" href="contact">
-              Contact me
+
+          <li className="menu-list">
+            <a className="font-Ovo" href="#degrees">
+              Degrees
             </a>
           </li>
         </ul>
         <div className="flex items-center gap-4">
-          <button>
-            <Image src={assets.moon_icon} alt="" className="w-6" />
-          </button>
-          <a
-            href="contact"
-            className="hidden lg:flex items-center gap-3 font-Ovo px-10 py-2.5 border border-gray-500 rounded-full ml-4"
+          <button
+            onClick={() =>
+              setTheme(resolvedTheme === "dark" ? "light" : "dark")
+            }
           >
-            Contact <Image src={assets.arrow_icon} alt="" className="w-3" />
-          </a>
+            <Image src={assets.moon_icon} alt="" className="w-6 dark:hidden" />
+            <Image
+              src={assets.sun_icon}
+              alt=""
+              className="w-6 hidden dark:block"
+            />
+          </button>
+          <div className="box-hover">
+            <a href="#contact" className="contact-button">
+              Contact
+              {/*<Image
+                src={assets.arrow_icon}
+                alt=""
+                className="w-3 dark:hidden"
+              />
+              <Image
+                src={assets.arrow_icon_dark}
+                alt=""
+                className="w-3 hidden dark:block"
+              />*/}
+            </a>
+          </div>
 
           <button className="block md:hidden ml-3" onClick={openMenu}>
-            <Image src={assets.menu_black} alt="" className="w-6" />
+            <Image src={assets.menu_black} alt="" className="w-6 dark:hidden" />
+            <Image
+              src={assets.menu_white}
+              alt=""
+              className="w-6 hidden dark:block"
+            />
           </button>
         </div>
 
         {/*-----------Mobile menu-------------*/}
 
-        <ul
-          ref={sideMenuRef}
-          className="flex md:hidden flex-col gap-4 py-20 px-10 fixed right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500"
-        >
-          <div onClick={closeMenu} className="absolute right-6 top-6">
+        <div ref={sideMenuRef} className="mobile-menu">
+          <div onClick={closeMenu} className="absolute right-7 top-7 ">
             <Image
               src={assets.close_black}
               alt=""
-              className="w-5 cursor-pointer"
+              className="close-menu dark:hidden"
+            />
+            <Image
+              src={assets.close_white}
+              alt=""
+              className="close-menu hidden dark:block"
             />
           </div>
-
-          <li>
-            <a onClick={closeMenu} className="font-Ovo" href="top">
-              Home
-            </a>
-          </li>
-          <li>
-            <a onClick={closeMenu} className="font-Ovo" href="about">
-              About
-            </a>
-          </li>
-          <li>
-            <a onClick={closeMenu} className="font-Ovo" href="services">
-              Serices
-            </a>
-          </li>
-          <li>
-            <a onClick={closeMenu} className="font-Ovo" href="work">
-              My Work
-            </a>
-          </li>
-          <li>
-            <a onClick={closeMenu} className="font-Ovo" href="contact">
-              Contact me
-            </a>
-          </li>
-        </ul>
+          <ul className="mobile-menu-list">
+            <li>
+              <a onClick={closeMenu} className="font-Ovo " href="#top">
+                Home
+              </a>
+            </li>
+            <li>
+              <a onClick={closeMenu} className="font-Ovo" href="#about">
+                About
+              </a>
+            </li>
+            <li>
+              <a onClick={closeMenu} className="font-Ovo" href="#services">
+                Services
+              </a>
+            </li>
+            <li>
+              <a onClick={closeMenu} className="font-Ovo" href="#work">
+                My Work
+              </a>
+            </li>
+            <li>
+              <a onClick={closeMenu} className="font-Ovo" href="#degrees">
+                Degrees
+              </a>
+            </li>
+            <li>
+              <a onClick={closeMenu} className="font-Ovo" href="#contact">
+                Contact me
+              </a>
+            </li>
+          </ul>
+        </div>
       </nav>
     </>
   );

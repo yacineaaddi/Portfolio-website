@@ -5,18 +5,12 @@ import edu_icon from "./edu-icon.png";
 import edu_icon_dark from "./edu-icon-dark.png";
 import project_icon from "./project-icon.png";
 import project_icon_dark from "./project-icon-dark.png";
-import vscode from "./vscode.png";
-import firebase from "./firebase.png";
-import figma from "./figma.png";
 import git from "./git.png";
 import mongodb from "./mongodb.png";
 import right_arrow_white from "./right-arrow-white.png";
-import logo from "./logo.png";
-import logo_dark from "./logo_dark.png";
 import mail_icon from "./mail_icon.png";
 import mail_icon_dark from "./mail_icon_dark.png";
 import profile_img from "./profile-img.png";
-import download_icon from "./download-icon.png";
 import hand_icon from "./hand-icon.png";
 import header_bg_color from "./header-bg-color.png";
 import moon_icon from "./moon_icon.png";
@@ -35,8 +29,21 @@ import right_arrow from "./right-arrow.png";
 import send_icon from "./send-icon.png";
 import right_arrow_bold from "./right-arrow-bold.png";
 import right_arrow_bold_dark from "./right-arrow-bold-dark.png";
+import github_logo from "./github_logo.png";
+import next_logo from "./next_logo.png";
+import nodejs_logo from "./nodejs_logo.png";
+import supabase_logo from "./supabase_logo.png";
+import react_logo from "./react_logo.png";
+import javascript_logo from "./javascript_logo.png";
+import background from "./background.jpg";
+import logo_light from "./logo_light.png";
+import logo_dark from "./logo_dark.png";
+import graduate_logo from "./graduate_logo.png";
+import postgresql_logo from "./postgresql_logo.png";
 
 export const assets = {
+  postgresql_logo,
+  github_logo,
   user_image,
   code_icon,
   code_icon_dark,
@@ -44,18 +51,13 @@ export const assets = {
   edu_icon_dark,
   project_icon,
   project_icon_dark,
-  vscode,
-  firebase,
-  figma,
   git,
   mongodb,
   right_arrow_white,
-  logo,
   logo_dark,
   mail_icon,
   mail_icon_dark,
   profile_img,
-  download_icon,
   hand_icon,
   header_bg_color,
   moon_icon,
@@ -74,6 +76,14 @@ export const assets = {
   send_icon,
   right_arrow_bold,
   right_arrow_bold_dark,
+  next_logo,
+  nodejs_logo,
+  supabase_logo,
+  react_logo,
+  javascript_logo,
+  background,
+  logo_light,
+  graduate_logo,
 };
 
 export const workData = [
@@ -99,31 +109,39 @@ export const workData = [
   },
 ];
 
+export const academic_degrees = [
+  { title: "React Certification", bgImage: "/udemy-react.jpg" },
+  { title: "Javascript Certification", bgImage: "/udemy-javascript.jpg" },
+  { title: "React Certification", bgImage: "/udemy-react.jpg" },
+  { title: "Git Certification", bgImage: "/udemy-github.jpg" },
+];
 export const serviceData = [
   {
     icon: assets.web_icon,
-    title: "Web design",
-    description: "Web development is the process of building, programming...",
+    title: "Web app",
+    description:
+      "Responsive and scalable applications for businesses, dashboards, and online platforms",
     link: "",
   },
   {
     icon: assets.mobile_icon,
     title: "Mobile app",
     description:
-      "Mobile app development involves creating software for mobile devices...",
+      "Cross-platform iOS and Android applications built with React Native and Expo",
     link: "",
   },
   {
     icon: assets.ui_icon,
-    title: "UI/UX design",
+    title: "Full-Stack Solutions",
     description:
-      "UI/UX design focuses on creating a seamless user experience...",
+      "Complete products with frontend, backend, authentication, databases, and APIs",
     link: "",
   },
   {
     icon: assets.graphics_icon,
-    title: "Graphics design",
-    description: "Creative design solutions to enhance visual communication...",
+    title: "Business Platforms",
+    description:
+      "Booking systems, management dashboards, and custom business solutions",
     link: "",
   },
 ];
@@ -133,13 +151,13 @@ export const infoList = [
     icon: assets.code_icon,
     iconDark: assets.code_icon_dark,
     title: "Languages",
-    description: "HTML, CSS, JavaScript React Js, Next Js",
+    description: "React, React Native, Next.js, Node.js",
   },
   {
     icon: assets.edu_icon,
     iconDark: assets.edu_icon_dark,
     title: "Education",
-    description: "B.Tech in Computer Science",
+    description: "Licence Degree in Software Engineering",
   },
   {
     icon: assets.project_icon,
@@ -150,9 +168,12 @@ export const infoList = [
 ];
 
 export const toolsData = [
-  assets.vscode,
-  assets.firebase,
-  assets.mongodb,
-  assets.figma,
+  assets.react_logo,
+  assets.javascript_logo,
+  assets.next_logo,
   assets.git,
+  assets.mongodb,
+  assets.nodejs_logo,
+  assets.supabase_logo,
+  assets.postgresql_logo,
 ];
